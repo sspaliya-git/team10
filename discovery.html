@@ -15,6 +15,9 @@
             background: white;
             cursor: pointer;
             margin: 5px;
+            display: inline-block;
+            text-decoration: none;
+            color: inherit;
         }
 
         .filter-btn.active {
@@ -68,10 +71,10 @@
 
             <div class="filters">
                 <button class="filter-btn active">All</button>
-                <button class="filter-btn">Science</button>
-                <button class="filter-btn">Commerce</button>
-                <button class="filter-btn">Arts</button>
-                <button class="filter-btn">Vocational</button>
+                <a href="science.html" class="filter-btn">Science</a>
+                <a href="commerce.html" class="filter-btn">Commerce</a>
+                <a href="arts.html" class="filter-btn">Arts</a>
+                <a href="vocational.html" class="filter-btn">Vocational</a>
             </div>
         </div>
 
@@ -85,8 +88,8 @@
                 <p>Builds computer programs and apps.</p>
                 <p><strong>Skills:</strong> Logic, Coding, Math</p>
                 <p><strong>Education:</strong> B.Tech / B.E. (CS/IT)</p>
-                <button class="btn btn-secondary" style="width: 100%; margin-top: 10px; padding: 8px;">Learn
-                    More</button>
+                <a href="science.html" class="btn btn-secondary" style="width: 100%; margin-top: 10px; padding: 8px; display: block; text-align: center;">Learn
+                    More</a>
             </div>
 
             <!-- Career Card 2 -->
@@ -98,8 +101,8 @@
                 <p>Manages finances and audits for companies.</p>
                 <p><strong>Skills:</strong> Math, Analysis, Finance</p>
                 <p><strong>Education:</strong> CA Foundation > Inter > Final</p>
-                <button class="btn btn-secondary" style="width: 100%; margin-top: 10px; padding: 8px;">Learn
-                    More</button>
+                <a href="commerce.html" class="btn btn-secondary" style="width: 100%; margin-top: 10px; padding: 8px; display: block; text-align: center;">Learn
+                    More</a>
             </div>
 
             <!-- Career Card 3 -->
@@ -111,8 +114,8 @@
                 <p>Creates visual content for brands and media.</p>
                 <p><strong>Skills:</strong> Creativity, Drawing, Tools (Ps/Ai)</p>
                 <p><strong>Education:</strong> B.Des / Diploma</p>
-                <button class="btn btn-secondary" style="width: 100%; margin-top: 10px; padding: 8px;">Learn
-                    More</button>
+                <a href="arts.html" class="btn btn-secondary" style="width: 100%; margin-top: 10px; padding: 8px; display: block; text-align: center;">Learn
+                    More</a>
             </div>
 
             <!-- Career Card 4 -->
@@ -124,11 +127,22 @@
                 <p>Prepares professional meals and menus.</p>
                 <p><strong>Skills:</strong> Cooking, Taste, Management</p>
                 <p><strong>Education:</strong> Hotel Management / Culinary Arts</p>
-                <button class="btn btn-secondary" style="width: 100%; margin-top: 10px; padding: 8px;">Learn
-                    More</button>
+                <a href="vocational.html" class="btn btn-secondary" style="width: 100%; margin-top: 10px; padding: 8px; display: block; text-align: center;">Learn
+                    More</a>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--color-primary); color: white; padding: 40px 0; text-align: center; margin-top: 40px;">
+        <div class="container">
+            <p>&copy; 2024 PathPilot. All rights reserved.</p>
+            <div style="margin-top: 10px;">
+                <a href="about.html" style="color: white; margin: 0 10px;">About</a>
+                <a href="contact.html" style="color: white; margin: 0 10px;">Contact</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

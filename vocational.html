@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocational Careers - PathPilot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .stream-section { margin-bottom: 30px; }
+        .stream-section h2 { color: var(--color-primary); margin-bottom: 15px; }
+        .career-list { list-style: none; padding-left: 0; }
+        .career-list li {
+            padding: 12px 16px; margin-bottom: 10px; background: white;
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+        }
+        .career-list li:hover { box-shadow: var(--shadow-md); }
+        .career-name { font-weight: 600; color: var(--color-primary); }
+        .career-desc { font-size: 0.95rem; color: var(--color-text-light); }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">PathPilot 🚀</a>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="awareness.html">Why it Matters</a></li>
+                <li><a href="discovery.html" class="active">Explore</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="guide.html">AI Guide</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 40px 20px;">
+        <h1 style="text-align: center;">Vocational & Skill-Based Careers 🔧</h1>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Vocational careers focus on practical skills and hands-on work. Here are various paths you can explore.</p>
+
+        <div style="max-width: 900px; margin: 0 auto;">
+
+            <section class="card stream-section" style="margin-bottom: 30px;">
+                <h2>🍳 Hospitality & Culinary</h2>
+                <p>Work in food, hotels, and tourism.</p>
+                <ul class="career-list">
+                    <li><span class="career-name">Chef</span><span class="career-desc">Prepare meals in restaurants and hotels</span></li>
+                    <li><span class="career-name">Hotel Manager</span><span class="career-desc">Manage hotel operations</span></li>
+                    <li><span class="career-name">Baker</span><span class="career-desc">Bread, cakes, and pastries</span></li>
+                    <li><span class="career-name">Tour Guide</span><span class="career-desc">Guide tourists at travel destinations</span></li>
+                </ul>
+            </section>
+
+            <section class="card stream-section" style="margin-bottom: 30px;">
+                <h2>🔧 Trades & Technical</h2>
+                <p>Skilled hands-on work and repairs.</p>
+                <ul class="career-list">
+                    <li><span class="career-name">Electrician</span><span class="career-desc">Wiring and electrical systems</span></li>
+                    <li><span class="career-name">Plumber</span><span class="career-desc">Pipes and water systems</span></li>
+                    <li><span class="career-name">Mechanic</span><span class="career-desc">Repair vehicles and machines</span></li>
+                    <li><span class="career-name">Welder</span><span class="career-desc">Join metal parts</span></li>
+                    <li><span class="career-name">Carpenter</span><span class="career-desc">Woodwork and furniture</span></li>
+                </ul>
+            </section>
+
+            <section class="card stream-section" style="margin-bottom: 30px;">
+                <h2>💇 Beauty & Wellness</h2>
+                <p>Work in beauty and health services.</p>
+                <ul class="career-list">
+                    <li><span class="career-name">Hairdresser / Stylist</span><span class="career-desc">Hair cutting and styling</span></li>
+                    <li><span class="career-name">Makeup Artist</span><span class="career-desc">Bridal, fashion, and film makeup</span></li>
+                    <li><span class="career-name">Spa Therapist</span><span class="career-desc">Massage and wellness treatments</span></li>
+                    <li><span class="career-name">Yoga Instructor</span><span class="career-desc">Teach yoga and fitness</span></li>
+                </ul>
+            </section>
+
+            <section class="card stream-section" style="margin-bottom: 30px;">
+                <h2>🖥️ IT & Digital Skills</h2>
+                <p>Short-term courses for tech careers.</p>
+                <ul class="career-list">
+                    <li><span class="career-name">Web Developer</span><span class="career-desc">Build websites (diploma/certificate)</span></li>
+                    <li><span class="career-name">Digital Marketing</span><span class="career-desc">Online marketing and SEO</span></li>
+                    <li><span class="career-name">Computer Operator</span><span class="career-desc">Data entry and basic IT</span></li>
+                </ul>
+            </section>
+
+            <section class="card stream-section" style="margin-bottom: 30px;">
+                <h2>🏗️ Construction & Real Estate</h2>
+                <p>Build and manage property.</p>
+                <ul class="career-list">
+                    <li><span class="career-name">Mason</span><span class="career-desc">Brickwork and construction</span></li>
+                    <li><span class="career-name">Painter</span><span class="career-desc">House and industrial painting</span></li>
+                    <li><span class="career-name">Real Estate Agent</span><span class="career-desc">Sell and rent properties</span></li>
+                </ul>
+            </section>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="discovery.html" class="btn btn-primary">Back to Explore</a>
+                <a href="quiz.html" class="btn btn-secondary" style="margin-left: 10px;">Take Career Quiz</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer style="background-color: var(--color-primary); color: white; padding: 40px 0; text-align: center; margin-top: 40px;">
+        <div class="container">
+            <p>&copy; 2024 PathPilot. All rights reserved.</p>
+            <div style="margin-top: 10px;">
+                <a href="about.html" style="color: white; margin: 0 10px;">About</a>
+                <a href="contact.html" style="color: white; margin: 0 10px;">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
