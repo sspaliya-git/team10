@@ -1,13 +1,14 @@
 /* PathPilot Design System */
 :root {
-    /* Color Palette */
-    --color-primary: #006064; /* Teal */
-    --color-secondary: #E0F7FA; /* Light Blue */
-    --color-accent: #FF7043; /* Soft Orange/Coral */
-    --color-background: #F5F5F5; /* Off-white */
+    /* Color Palette - Indigo & Amber */
+    --color-primary: #1A237E; /* Deep Indigo */
+    --color-secondary: #E8EAF6; /* Light Indigo */
+    --color-accent: #FF6F00; /* Amber */
+    --color-background: #E8F5E9; /* Soft mint - vibrant base */
+    --color-bg-gradient: linear-gradient(135deg, #B3E5FC 0%, #C8E6C9 30%, #FFE0B2 60%, #E1BEE7 100%);
     --color-surface: #FFFFFF; /* White */
-    --color-text-main: #333333; /* Dark Grey */
-    --color-text-light: #757575; /* Medium Grey */
+    --color-text-main: #212121; /* Dark */
+    --color-text-light: #616161; /* Grey */
 
     /* Typography */
     --font-family-main: 'Poppins', sans-serif;
@@ -42,9 +43,11 @@
 
 body {
     font-family: var(--font-family-main);
-    background-color: var(--color-background);
+    background: var(--color-bg-gradient);
+    background-attachment: fixed;
     color: var(--color-text-main);
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 a {
