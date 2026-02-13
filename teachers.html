@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Teachers - PathPilot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .todo-item { display: flex; align-items: start; gap: 12px; margin-bottom: 16px; padding: 12px; background: white; border-radius: 8px; box-shadow: var(--shadow-sm); }
+        .todo-item input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; cursor: pointer; flex-shrink: 0; }
+        .todo-item label { cursor: pointer; flex: 1; }
+        .todo-item.checked label { text-decoration: line-through; color: var(--color-text-light); }
+        .info-card { margin-bottom: 24px; }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">PathPilot 🚀</a>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="awareness.html" class="active">Why it Matters</a></li>
+                <li><a href="discovery.html">Explore</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="guide.html">AI Guide</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 40px 20px;">
+        <h1 style="text-align: center;">For Teachers 🏫</h1>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 40px;">Simple tools for career mentorship in your classroom. Guide students with confidence.</p>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+
+            <section class="card info-card">
+                <h2>Your Role in Career Guidance</h2>
+                <p>Teachers are often the first to notice a student's interests and strengths. PathPilot helps you channel that into meaningful career conversations. Use it in class, recommend it to students, or share it with parents—all without login or setup.</p>
+            </section>
+
+            <section class="card info-card">
+                <h2>How to Use PathPilot in Teaching</h2>
+                <ul style="padding-left: 20px; line-height: 1.8;">
+                    <li><strong>Class activity</strong> – Run the Career Quiz as a group and discuss results.</li>
+                    <li><strong>Assignment</strong> – Ask students to explore one stream and share 3 careers they found.</li>
+                    <li><strong>Parent meetings</strong> – Share PathPilot links so parents can explore with their children.</li>
+                    <li><strong>Career corner</strong> – Use Explore pages for a classroom career board or display.</li>
+                </ul>
+            </section>
+
+            <section class="card" style="background-color: var(--color-secondary);">
+                <h2>✓ Your To-Do Activities</h2>
+                <p style="margin-bottom: 20px;">Integrate career guidance into your mentorship:</p>
+                <div id="teacherTodoList">
+                    <div class="todo-item">
+                        <input type="checkbox" id="t1">
+                        <label for="t1">Try the <a href="quiz.html">Career Quiz</a> yourself to understand how it works</label>
+                    </div>
+                    <div class="todo-item">
+                        <input type="checkbox" id="t2">
+                        <label for="t2">Conduct one class session using PathPilot's <a href="discovery.html">Explore</a> page</label>
+                    </div>
+                    <div class="todo-item">
+                        <input type="checkbox" id="t3">
+                        <label for="t3">Recommend PathPilot to at least 5 students for self-exploration</label>
+                    </div>
+                    <div class="todo-item">
+                        <input type="checkbox" id="t4">
+                        <label for="t4">Share the <a href="parents.html">Parents</a> page link in your next parent meeting</label>
+                    </div>
+                    <div class="todo-item">
+                        <input type="checkbox" id="t5">
+                        <label for="t5">Create a simple "Career of the Week" display using stream pages (<a href="science.html">Science</a>, <a href="commerce.html">Commerce</a>, <a href="arts.html">Arts</a>, <a href="vocational.html">Vocational</a>)</label>
+                    </div>
+                    <div class="todo-item">
+                        <input type="checkbox" id="t6">
+                        <label for="t6">Use the <a href="guide.html">AI Guide</a> to answer a student's career question in class</label>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin-top: 30px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <a href="quiz.html" class="btn btn-primary">Try the Career Quiz</a>
+                <a href="discovery.html" class="btn btn-secondary">Explore Careers</a>
+                <a href="awareness.html" class="btn btn-secondary">Back to Why it Matters</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer style="background-color: var(--color-primary); color: white; padding: 40px 0; text-align: center; margin-top: 40px;">
+        <div class="container">
+            <p>2026 Team-10, All Rights Reserved.</p>
+            <div style="margin-top: 10px;">
+                <a href="about.html" style="color: white; margin: 0 10px;">About</a>
+                <a href="contact.html" style="color: white; margin: 0 10px;">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('#teacherTodoList input[type="checkbox"]').forEach(cb => {
+            cb.addEventListener('change', function() {
+                this.closest('.todo-item').classList.toggle('checked', this.checked);
+                localStorage.setItem('teacherTodo_' + this.id, this.checked);
+            });
+            if (localStorage.getItem('teacherTodo_' + cb.id) === 'true') {
+                cb.checked = true;
+                cb.closest('.todo-item').classList.add('checked');
+            }
+        });
+    </script>
+</body>
+
+</html>

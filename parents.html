@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Parents - PathPilot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .todo-item { display: flex; align-items: start; gap: 12px; margin-bottom: 16px; padding: 12px; background: white; border-radius: 8px; box-shadow: var(--shadow-sm); }
+        .todo-item input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; cursor: pointer; flex-shrink: 0; }
+        .todo-item label { cursor: pointer; flex: 1; }
+        .todo-item.checked label { text-decoration: line-through; color: var(--color-text-light); }
+        .info-card { margin-bottom: 24px; }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">PathPilot 🚀</a>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="awareness.html" class="active">Why it Matters</a></li>
+                <li><a href="discovery.html">Explore</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="guide.html">AI Guide</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 40px 20px;">
+        <h1 style="text-align: center;">For Parents 🏠</h1>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 40px;">Support your child's career journey with simple tools and practical guidance.</p>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+
+            <section class="card info-card">
+                <h2>How You Can Help</h2>
+                <p>As a parent, you play a key role in your child's career decisions. PathPilot gives you easy-to-use resources to guide them—without needing to be an expert. You can explore careers together, understand different streams, and help your child discover what they enjoy.</p>
+            </section>
+
+            <section class="card info-card">
+                <h2>Key Tips for Parents</h2>
+                <ul style="padding-left: 20px; line-height: 1.8;">
+                    <li><strong>Listen first</strong> – Let your child share their interests before suggesting options.</li>
+                    <li><strong>Explore together</strong> – Use PathPilot's Explore and Quiz with your child.</li>
+                    <li><strong>Avoid pressure</strong> – Focus on interests and strengths, not just marks or peer choices.</li>
+                    <li><strong>Stay informed</strong> – Understand Science, Commerce, Arts, and Vocational paths so you can discuss clearly.</li>
+                </ul>
+            </section>
+
+            <section class="card" style="background-color: var(--color-secondary);">
+                <h2>✓ Your To-Do Activities</h2>
+                <p style="margin-bottom: 20px;">Support your child's career exploration with these steps:</p>
+                <div id="parentTodoList">
+                    <div class="todo-item">
+                        <input type="checkbox" id="p1">
+                        <label for="p1">Sit with your child and complete the <a href="quiz.html">Career Quiz</a> together</label>
+                    </div>
+                    <div class="todo-item">
+                        <input type="checkbox" id="p2">
+                        <label for="p2">Browse the <a href="discovery.html">Explore</a> page and discuss 2–3 careers with your child</label>
+                    </div>
+                    <div class="todo-item">
+                        <input type="checkbox" id="p3">
+                        <label for="p3">Ask your child: "What do you enjoy doing most?" and note their answers</label>
+                    </div>
+                    <div class="todo-item">
+                        <input type="checkbox" id="p4">
+                        <label for="p4">Read about <a href="science.html">Science</a>, <a href="commerce.html">Commerce</a>, <a href="arts.html">Arts</a>, and <a href="vocational.html">Vocational</a> streams</label>
+                    </div>
+                    <div class="todo-item">
+                        <input type="checkbox" id="p5">
+                        <label for="p5">Share one thing you learned from PathPilot with your child's teacher</label>
+                    </div>
+                    <div class="todo-item">
+                        <input type="checkbox" id="p6">
+                        <label for="p6">Have a relaxed chat about careers—no pressure, just curiosity</label>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin-top: 30px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <a href="quiz.html" class="btn btn-primary">Try the Quiz with Your Child</a>
+                <a href="discovery.html" class="btn btn-secondary">Explore Careers</a>
+                <a href="awareness.html" class="btn btn-secondary">Back to Why it Matters</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer style="background-color: var(--color-primary); color: white; padding: 40px 0; text-align: center; margin-top: 40px;">
+        <div class="container">
+            <p>2026 Team-10, All Rights Reserved.</p>
+            <div style="margin-top: 10px;">
+                <a href="about.html" style="color: white; margin: 0 10px;">About</a>
+                <a href="contact.html" style="color: white; margin: 0 10px;">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('#parentTodoList input[type="checkbox"]').forEach(cb => {
+            cb.addEventListener('change', function() {
+                this.closest('.todo-item').classList.toggle('checked', this.checked);
+                localStorage.setItem('parentTodo_' + this.id, this.checked);
+            });
+            if (localStorage.getItem('parentTodo_' + cb.id) === 'true') {
+                cb.checked = true;
+                cb.closest('.todo-item').classList.add('checked');
+            }
+        });
+    </script>
+</body>
+
+</html>

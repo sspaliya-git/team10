@@ -26,21 +26,154 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------------------------------------------------------
     // Quiz Logic (quiz.html)
     // ---------------------------------------------------------
-    const quizButtons = document.querySelectorAll('.option-btn');
-    const questionDiv = document.getElementById('question-1');
+    const questionContainer = document.getElementById('questionContainer');
     const resultDiv = document.getElementById('result');
-    const progressBar = document.querySelector('.progress-fill');
+    const progressBar = document.getElementById('progressFill');
+    const questionNumberEl = document.getElementById('questionNumber');
+    const questionTextEl = document.getElementById('questionText');
+    const optionsContainer = document.getElementById('optionsContainer');
+    const resultTitleEl = document.getElementById('resultTitle');
+    const resultDescEl = document.getElementById('resultDesc');
 
-    if (quizButtons.length > 0 && questionDiv && resultDiv) {
-        quizButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // In a real app, this would load the next question
-                // For this demo, we'll just show the result
-                questionDiv.style.display = 'none';
-                if (progressBar) progressBar.style.width = '100%';
-                resultDiv.style.display = 'block';
+    const quizData = [
+        {
+            text: "What do you enjoy doing most in your free time?",
+            pictureBased: false,
+            options: [
+                { text: "Solving puzzles or math problems", stream: "science" },
+                { text: "Drawing, painting, or designing", stream: "arts" },
+                { text: "Helping people or organizing events", stream: "commerce" },
+                { text: "Fixing things or working with tools", stream: "vocational" }
+            ]
+        },
+        {
+            text: "Which subject interests you most?",
+            pictureBased: true,
+            options: [
+                { text: "Science & Experiments", emoji: "🔬", stream: "science" },
+                { text: "Arts & Creativity", emoji: "🎨", stream: "arts" },
+                { text: "Commerce & Numbers", emoji: "💼", stream: "commerce" },
+                { text: "Hands-on Skills", emoji: "🔧", stream: "vocational" }
+            ]
+        },
+        {
+            text: "When working on a project, you prefer:",
+            pictureBased: false,
+            options: [
+                { text: "Analysing data and finding solutions", stream: "science" },
+                { text: "Creating something visually appealing", stream: "arts" },
+                { text: "Planning budgets and managing tasks", stream: "commerce" },
+                { text: "Building or assembling things physically", stream: "vocational" }
+            ]
+        },
+        {
+            text: "Which work environment appeals to you most?",
+            pictureBased: true,
+            options: [
+                { text: "Lab or Research Centre", emoji: "🧪", stream: "science" },
+                { text: "Studio or Creative Space", emoji: "🖌️", stream: "arts" },
+                { text: "Office or Bank", emoji: "🏛️", stream: "commerce" },
+                { text: "Kitchen or Workshop", emoji: "🍳", stream: "vocational" }
+            ]
+        },
+        {
+            text: "Your friends would describe you as:",
+            pictureBased: false,
+            options: [
+                { text: "Logical and curious", stream: "science" },
+                { text: "Creative and expressive", stream: "arts" },
+                { text: "Organised and good with numbers", stream: "commerce" },
+                { text: "Practical and hands-on", stream: "vocational" }
+            ]
+        },
+        {
+            text: "Pick the activity you'd enjoy most:",
+            pictureBased: true,
+            options: [
+                { text: "Conducting experiments", emoji: "⚗️", stream: "science" },
+                { text: "Designing a poster", emoji: "✏️", stream: "arts" },
+                { text: "Managing a budget", emoji: "📊", stream: "commerce" },
+                { text: "Cooking a meal", emoji: "👨‍🍳", stream: "vocational" }
+            ]
+        },
+        {
+            text: "What matters most to you in a career?",
+            pictureBased: false,
+            options: [
+                { text: "Discovery and innovation", stream: "science" },
+                { text: "Expression and creativity", stream: "arts" },
+                { text: "Growth and financial stability", stream: "commerce" },
+                { text: "Practical skills and independence", stream: "vocational" }
+            ]
+        },
+        {
+            text: "Which outcome excites you?",
+            pictureBased: true,
+            options: [
+                { text: "Launching a rocket", emoji: "🚀", stream: "science" },
+                { text: "Exhibiting your art", emoji: "🖼️", stream: "arts" },
+                { text: "Leading a business", emoji: "🏆", stream: "commerce" },
+                { text: "Opening your own shop", emoji: "🏪", stream: "vocational" }
+            ]
+        }
+    ];
+
+    const streamResults = {
+        science: { title: "Science & Engineering", desc: "You love solving problems and understanding how things work. Explore careers in medicine, engineering, research, and technology.", link: "science.html" },
+        arts: { title: "Arts & Creativity", desc: "You thrive on expression and creativity. Explore careers in design, media, performing arts, and social sciences.", link: "arts.html" },
+        commerce: { title: "Commerce & Business", desc: "You enjoy numbers, planning, and management. Explore careers in finance, accounting, business, and law.", link: "commerce.html" },
+        vocational: { title: "Vocational & Skills", desc: "You prefer hands-on work and practical skills. Explore careers in hospitality, trades, beauty, and IT.", link: "vocational.html" }
+    };
+
+    if (questionContainer && resultDiv && optionsContainer) {
+        let currentQuestion = 0;
+        let scores = { science: 0, arts: 0, commerce: 0, vocational: 0 };
+
+        function renderQuestion() {
+            if (currentQuestion >= quizData.length) {
+                showResult();
+                return;
+            }
+            const q = quizData[currentQuestion];
+            questionNumberEl.textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
+            questionTextEl.textContent = q.text;
+            progressBar.style.width = `${((currentQuestion + 1) / quizData.length) * 100}%`;
+
+            optionsContainer.innerHTML = '';
+            q.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn' + (q.pictureBased ? ' picture-option' : '');
+                if (q.pictureBased && opt.emoji) {
+                    btn.innerHTML = `<span class="option-emoji">${opt.emoji}</span><span>${opt.text}</span>`;
+                } else {
+                    btn.textContent = opt.text;
+                }
+                btn.dataset.stream = opt.stream;
+                btn.addEventListener('click', () => selectOption(opt.stream));
+                optionsContainer.appendChild(btn);
             });
-        });
+        }
+
+        function selectOption(stream) {
+            scores[stream] = (scores[stream] || 0) + 1;
+            currentQuestion++;
+            renderQuestion();
+        }
+
+        function showResult() {
+            const topStream = Object.entries(scores).reduce((a, b) => a[1] > b[1] ? a : b)[0];
+            const result = streamResults[topStream];
+            questionContainer.style.display = 'none';
+            progressBar.style.width = '100%';
+            resultTitleEl.textContent = result.title;
+            resultDescEl.textContent = result.desc;
+            const exploreBtn = resultDiv.querySelector('.btn-primary');
+            exploreBtn.href = result.link;
+            exploreBtn.textContent = 'Explore ' + result.title;
+            resultDiv.style.display = 'block';
+        }
+
+        renderQuestion();
     }
 
     // ---------------------------------------------------------

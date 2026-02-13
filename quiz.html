@@ -43,8 +43,19 @@
         .progress-fill {
             height: 100%;
             background: var(--color-primary);
-            width: 20%;
             transition: width 0.3s;
+        }
+
+        .option-btn.picture-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            gap: 10px;
+        }
+        .option-btn .option-emoji {
+            font-size: 3rem;
+            line-height: 1;
         }
     </style>
 </head>
@@ -73,27 +84,23 @@
         <div class="quiz-container card">
 
             <div class="progress-bar">
-                <div class="progress-fill" style="width: 25%;"></div>
+                <div class="progress-fill" id="progressFill" style="width: 10%;"></div>
             </div>
 
-            <!-- Question -->
-            <div id="question-1">
-                <h2>Question 1 of 4</h2>
-                <p style="font-size: 1.2rem; margin-bottom: 20px;">What do you enjoy doing most in your free time?</p>
-
-                <button class="option-btn">Solving puzzles or math problems</button>
-                <button class="option-btn">Drawing, painting, or designing</button>
-                <button class="option-btn">Helping people or organizing events</button>
-                <button class="option-btn">Fixing things or working with tools</button>
+            <!-- Question Container (populated by JS) -->
+            <div id="questionContainer">
+                <h2 id="questionNumber">Question 1 of 8</h2>
+                <p id="questionText" style="font-size: 1.2rem; margin-bottom: 20px;"></p>
+                <div id="optionsContainer"></div>
             </div>
 
-            <!-- Placeholder for Result (Hidden by default) -->
+            <!-- Result (Hidden by default) -->
             <div id="result" style="display: none; text-align: center;">
                 <h2>🎉 Great Job!</h2>
                 <p>Based on your answers, you might enjoy:</p>
-                <div style="background: var(--color-secondary); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                    <h3>Science & Engineering</h3>
-                    <p>You love solving problems and understanding how things work.</p>
+                <div id="resultContent" style="background: var(--color-secondary); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h3 id="resultTitle">Science & Engineering</h3>
+                    <p id="resultDesc">You love solving problems and understanding how things work.</p>
                 </div>
                 <a href="discovery.html" class="btn btn-primary">Explore These Careers</a>
             </div>
