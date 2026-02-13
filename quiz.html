@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Quiz - PathPilot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover {
+            border-color: var(--color-primary);
+            background-color: var(--color-secondary);
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--color-primary);
+            width: 20%;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">PathPilot 🚀</a>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="awareness.html">Why it Matters</a></li>
+                <li><a href="discovery.html">Explore</a></li>
+                <li><a href="quiz.html" class="active">Quiz</a></li>
+                <li><a href="guide.html">AI Guide</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 40px 20px;">
+        <h1 style="text-align: center;">Find Your Path 🧭</h1>
+
+        <div class="quiz-container card">
+
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 25%;"></div>
+            </div>
+
+            <!-- Question -->
+            <div id="question-1">
+                <h2>Question 1 of 4</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 20px;">What do you enjoy doing most in your free time?</p>
+
+                <button class="option-btn">Solving puzzles or math problems</button>
+                <button class="option-btn">Drawing, painting, or designing</button>
+                <button class="option-btn">Helping people or organizing events</button>
+                <button class="option-btn">Fixing things or working with tools</button>
+            </div>
+
+            <!-- Placeholder for Result (Hidden by default) -->
+            <div id="result" style="display: none; text-align: center;">
+                <h2>🎉 Great Job!</h2>
+                <p>Based on your answers, you might enjoy:</p>
+                <div style="background: var(--color-secondary); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h3>Science & Engineering</h3>
+                    <p>You love solving problems and understanding how things work.</p>
+                </div>
+                <a href="discovery.html" class="btn btn-primary">Explore These Careers</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
